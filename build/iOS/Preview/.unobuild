@@ -1,4 +1,0 @@
-$: 617050833
-BuildCommand: build.sh
-RunCommand: run.sh
-Product: build/Release-iphoneos/ShareSheet.app/ShareSheet
