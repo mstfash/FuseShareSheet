@@ -1,6 +1,6 @@
 # FuseShareSheet
 
-Share sheet for FuseTools Works on Android and IOS.
+Share sheet for FuseTools using foreign language works on Android and IOS.
 
 # Setup:
 
