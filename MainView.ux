@@ -1,0 +1,16 @@
+<App>
+	 <ClientPanel>
+        <JavaScript>
+            var Share = require("Share");
+
+            function share() { Share.sendIntent(); }
+
+            module.exports = {
+                share: share
+            };
+        </JavaScript>
+
+        <Button Clicked="{share}" Text="SHARE" />
+    </ClientPanel>
+</App>
+

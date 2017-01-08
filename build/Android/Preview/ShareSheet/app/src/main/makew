@@ -1,0 +1,30 @@
+#!/bin/sh
+# This file was generated based on '/Users/mostafa/Library/Application Support/Fusetools/Packages/UnoCore/0.42.5/targets/android/ShareSheet/app/src/main/makew'.
+# WARNING: Changes might be lost if you edit this file directly.
+set -e
+cd "`dirname "$0"`"
+NDK_DIR="/Users/mostafa/Library/Application Support/Fusetools/Fuse/Android/AndroidNDK"
+CXX=""
+
+# Find a compatible GCC toolchain
+for gcc in 4.9 4.8;  do
+    PREBUILT_DIR="$NDK_DIR/toolchains/arm-linux-androideabi-$gcc/prebuilt"
+    if [ -d "$PREBUILT_DIR" ]; then
+        CXX=`find "$PREBUILT_DIR" -name arm-linux-androideabi-g++`
+        if [ -n "$CXX" ]; then
+            break
+        fi
+    fi
+done
+
+if [ -z "$CXX" ]; then
+    echo "ERROR: GCC 4.9 or 4.8 was not found in '$NDK_DIR/toolchains/arm-linux-androideabi-4.**'." >&2
+    exit 1
+fi
+
+if ! which make > /dev/null 2>&1; then
+    echo "ERROR: 'make' was not found." >&2
+    exit 1
+fi
+
+PATH="`dirname "$CXX"`:$PATH" make "$@"

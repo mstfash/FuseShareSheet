@@ -1,0 +1,7 @@
+/Users/mostafa/Library/Application Support/Fusetools/Fuse/Android/AndroidNDK
+9
+armeabi-v7a
+-O3 -g -DNDEBUG
+
+ -I/Users/mostafa/Library/Application\ Support/Fusetools/Packages/Fuse.Scripting.V8/0.42.4 -I/Users/mostafa/Library/Application\ Support/Fusetools/Packages/Fuse.Text/0.42.4/harfbuzz/include -I/Users/mostafa/Library/Application\ Support/Fusetools/Packages/UnoCore/0.42.5/prebuilt/Android/include
+/Users/mostafa/Library/Application Support/Fusetools/Fuse/Android/AndroidNDK/sources/cxx-stl/stlport/stlport

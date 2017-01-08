@@ -1,0 +1,4 @@
+$: -760206573
+BuildCommand: build.sh
+RunCommand: run.sh
+Product: ShareSheet.apk
