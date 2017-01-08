@@ -18,6 +18,6 @@ Share sheet for FuseTools Works on Android and IOS.
 
 3- In your UX file:
 
- <Button Clicked="{share}" Text="SHARE" />
+    <Button Clicked="{share}" Text="SHARE" />
  
 4- For now it shares Text you will find what it shares in the Share.uno file you can change that.
