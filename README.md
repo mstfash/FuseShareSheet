@@ -5,6 +5,7 @@ Share sheet for FuseTools Works on Android and IOS.
 # Setup:
 
 1- Take the Share.uno file and put it beside the .unoproj file.
+
 2- In your JavaScript file:
 
     var Share = require("Share");
