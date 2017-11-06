@@ -1,6 +1,6 @@
 using Fuse;
 using Fuse.Scripting;
-using Fuse.Reactive;
+using Fuse.Reactive.Resource;
 using Uno.UX;
 
 using Uno.Compiler.ExportTargetInterop;
@@ -24,28 +24,28 @@ public class Share : NativeModule
 
     static object SendIntent(Context c, object[] args)
     {
-        if defined(Android) SendIntent();
-        if defined(iOS) SendIntent();
+        if defined(Android) SendIntent((string)args[0]);
+        if defined(iOS) SendIntent((string)args[0]);
 
         return null;
     }
 
     [Foreign(Language.Java)]
-    static extern(Android) void SendIntent()
+    static extern(Android) void SendIntent(string data)
     @{
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, data);
         sendIntent.setType("text/plain");
         Activity.getRootActivity().startActivity(Intent.createChooser(sendIntent, "Share via..."));
     @}
 
 
     [Foreign(Language.ObjC)]
-    static extern(iOS) void SendIntent()
+    static extern(iOS) void SendIntent(string data)
     @{
 
-      NSString *textToShare = @"www.google.com/%@";
+      NSString *textToShare = data;
         NSArray *itemsToShare = @[textToShare];
         UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities: nil];
         activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll]; //or whichever you don't need
